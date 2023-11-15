@@ -1,4 +1,4 @@
-package christmas.model.discountevent;
+package christmas.model.event;
 
 import christmas.validator.DateValidator;
 
