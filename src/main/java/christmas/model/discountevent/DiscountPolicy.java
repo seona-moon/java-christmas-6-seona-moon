@@ -1,6 +1,4 @@
-package christmas.model.event;
-
-import java.time.LocalDate;
+package christmas.model.discountevent;
 
 public interface DiscountPolicy {
     boolean isEventApplicable(int date);
