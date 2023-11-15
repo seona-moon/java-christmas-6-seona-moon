@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import static christmas.model.event.GiftEventPolicy.CHAMPAGNE_PRICE;
 import static christmas.util.TotalAmountCalculator.calculateTotalAmount;
 import static christmas.util.TotalAmountCalculator.calculateTotalDiscount;
 
@@ -73,7 +74,7 @@ public class MainController {
 
     private int calculateExpectedDiscount(int totalDiscount, Map<String, Integer> benefits) {
         if (benefits.containsKey("증정 이벤트")) {
-            totalDiscount -= 25000;
+            totalDiscount -= CHAMPAGNE_PRICE;
         }
         return totalDiscount;
     }
