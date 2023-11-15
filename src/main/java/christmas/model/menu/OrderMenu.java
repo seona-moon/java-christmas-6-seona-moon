@@ -1,7 +1,5 @@
-package christmas.model.order;
+package christmas.model.menu;
 
-import christmas.model.menu.Menu;
-import christmas.model.menu.MenuType;
 import christmas.view.ErrorMessage;
 import java.util.EnumMap;
 import java.util.Optional;
@@ -14,6 +12,10 @@ public class OrderMenu {
         menus = new EnumMap<>(Menu.class);
         parseAndSetMenus(input);
         validateOrder();
+    }
+
+    public EnumMap<Menu, Integer> getMenus() {
+        return menus;
     }
 
     private void parseAndSetMenus(String input) {
@@ -70,16 +72,5 @@ public class OrderMenu {
 
     private boolean isBeverageOnlyOrder() {
         return menus.keySet().stream().allMatch(menu -> menu.getType() == MenuType.Beverage);
-    }
-
-    @Override
-    public String toString() {
-        return menus.entrySet().stream()
-            .map(entry -> entry.getKey().getName() + " - " + entry.getValue() + "개\n")
-            .reduce("", String::concat);
-    }
-
-    public EnumMap<Menu, Integer> getMenus() {
-        return menus;
     }
 }
