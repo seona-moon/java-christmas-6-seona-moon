@@ -12,6 +12,7 @@ public class EventManager {
     private static final int STAR_BADGE_THRESHOLD = 5_000;
     private static final int TREE_BADGE_THRESHOLD = 10_000;
     private static final int SANTA_BADGE_THRESHOLD = 20_000;
+    private static final int EVENT_THRESHOLD = 10_000;
 
     private final Map<String, DiscountEventPolicy> discountPolicies;
     private final GiftEventPolicy giftPolicy;
@@ -30,7 +31,7 @@ public class EventManager {
 
     public Map<String, Integer> calculateEventsResults(int date, EnumMap<Menu, Integer> menus) {
         Map<String, Integer> eventResults = new LinkedHashMap<>();
-        if(TotalAmountCalculator.calculateTotalAmount(menus)<10000) {
+        if(TotalAmountCalculator.calculateTotalAmount(menus)<EVENT_THRESHOLD) {
             return eventResults;
         }
         totalDiscountAmount = 0;
@@ -84,7 +85,7 @@ public class EventManager {
     }
 
     private static void validateDate(int date) throws IllegalArgumentException {
-        if (date < 1 || date > 31) {
+        if (date < DayConstant.START_DAY || date > DayConstant.END_DAY) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_DATE_ERROR.getMessage());
         }
     }

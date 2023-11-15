@@ -1,12 +1,12 @@
 package christmas.model.event;
 
+import static christmas.model.event.DayConstant.DISCOUNT_YEAR;
+
 import christmas.model.menu.Menu;
 import christmas.model.menu.MenuType;
 import java.util.EnumMap;
 
 public class WeekendDiscountEventPolicy implements DiscountEventPolicy{
-
-    private static final int DISCOUNT_PER_MAIN = 2023;
 
     @Override
     public boolean isEventApplicable(int date) {
@@ -24,7 +24,7 @@ public class WeekendDiscountEventPolicy implements DiscountEventPolicy{
     private int calculateTotalDiscountForMains(EnumMap<Menu, Integer> menus) {
         return menus.entrySet().stream()
             .filter(entry -> entry.getKey().getType() == MenuType.Main)
-            .mapToInt(entry -> entry.getValue() * DISCOUNT_PER_MAIN)
+            .mapToInt(entry -> entry.getValue() * DISCOUNT_YEAR)
             .sum();
     }
 

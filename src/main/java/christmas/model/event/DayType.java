@@ -5,16 +5,15 @@ public enum DayType {
     WEEKEND;
 
     public static DayType from(int date) {
-        int dayOfWeek = date % 7;
+        int dayOfWeek = date % DayConstant.WEEK_SIZE;
         switch (dayOfWeek) {
-            case 1:
-            case 2:
+            case DayConstant.FRIDAY:
+            case DayConstant.SATURDAY:
                 return WEEKEND;
-            case 0:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
+            case DayConstant.THURSDAY:
+            case DayConstant.MONDAY:
+            case DayConstant.TUESDAY:
+            case DayConstant.WEDNESDAY:
                 return WEEKDAY;
             default:
                 throw new IllegalArgumentException();

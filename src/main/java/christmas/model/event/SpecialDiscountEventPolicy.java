@@ -21,8 +21,8 @@ public class SpecialDiscountEventPolicy implements DiscountEventPolicy{
     }
 
     private static boolean isSpecialDay(int date) {
-        int dayOfWeek = date % 7;
-        if (dayOfWeek==3 || date == 25) {
+        int dayOfWeek = date % DayConstant.WEEK_SIZE;
+        if (dayOfWeek==DayConstant.SUNDAY || date == DayConstant.CHRISTMAS_DAY) {
             return true;
         }
         return false;
