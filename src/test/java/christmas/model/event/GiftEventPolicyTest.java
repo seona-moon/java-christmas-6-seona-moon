@@ -36,7 +36,7 @@ class GiftEventPolicyTest {
         EnumMap<Menu, Integer> menus = new EnumMap<>(Menu.class);
         menus.put(Menu.ChristmasPasta, 5);
 
-        assertThat(policy.getDiscountAmount(0, menus)).isEqualTo(25_000);
+        assertThat(policy.getDiscountAmount(menus)).isEqualTo(25_000);
     }
 
     @Test
@@ -46,6 +46,6 @@ class GiftEventPolicyTest {
         EnumMap<Menu, Integer> menus = new EnumMap<>(Menu.class);
         menus.put(Menu.ChocolateCake, 1);
 
-        assertThat(policy.getDiscountAmount(0, menus)).isEqualTo(0);
+        assertThat(policy.getDiscountAmount(menus)).isEqualTo(0);
     }
 }
