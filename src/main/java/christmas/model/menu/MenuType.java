@@ -1,2 +1,8 @@
-package christmas.model.menu;public class MenuType {
+package christmas.model.menu;
+
+public enum MenuType {
+    Appetizer,
+    Main,
+    Dessert,
+    Beverage
 }
