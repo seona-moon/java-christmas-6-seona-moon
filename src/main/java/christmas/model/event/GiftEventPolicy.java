@@ -13,7 +13,7 @@ public class GiftEventPolicy {
         return totalAmount>=QUALIFYING_AMOUNT;
     }
 
-    public int getDiscountAmount(int date, EnumMap<Menu, Integer> menus) {
+    public int getDiscountAmount(EnumMap<Menu, Integer> menus) {
         if (isEventApplicable(menus)) {
             return CHAMPAGNE_PRICE;
         }
